@@ -1,0 +1,38 @@
+# =============================================================================
+# MeetingMind — pinned dependencies
+# All packages below ship prebuilt (manylinux/universal) wheels for
+# python:3.11-slim (linux/amd64 & linux/arm64) — nothing requires a local
+# C/C++ compiler, so builds are identical on Windows dev machines, macOS,
+# and the Cloud Run build environment.
+# =============================================================================
+
+# --- Core app / UI -----------------------------------------------------------
+streamlit==1.37.1
+python-dotenv==1.0.1
+pydantic==2.8.2
+
+# --- Persistence ---------------------------------------------------------------
+sqlalchemy==2.0.35
+
+# --- Data handling -------------------------------------------------------------
+pandas==2.2.3
+requests==2.32.3
+
+# --- Document / file parsing ----------------------------------------------------
+pdfplumber==0.11.4       # native-text PDF extraction
+pypdf==4.3.1             # lightweight PDF utilities / page counting
+python-docx==1.1.2       # .docx parsing
+pytesseract==0.3.13      # OCR wrapper (requires tesseract-ocr system binary)
+pdf2image==1.17.0        # PDF -> image rasterization for OCR fallback (requires poppler-utils)
+Pillow==10.4.0            # image handling for OCR pipeline
+
+# --- Audio transcription ---------------------------------------------------------
+# faster-whisper bundles CTranslate2, which ships prebuilt wheels for
+# linux/macOS/windows x86_64 + linux/macOS arm64 — no compilation, no CUDA
+# toolchain required for CPU inference.
+faster-whisper==1.0.3
+
+# onnxruntime is used by faster-whisper's built-in VAD (voice activity
+# detection) model. CPU wheel works everywhere faster-whisper's CPU mode
+# works; only pull the GPU build manually if you switch WHISPER_DEVICE=cuda.
+onnxruntime==1.18.1

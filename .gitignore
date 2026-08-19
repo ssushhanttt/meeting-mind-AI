@@ -1,0 +1,42 @@
+# Environment / secrets
+.env
+.env.local
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Database & runtime artifacts
+*.db
+*.sqlite
+*.sqlite3
+meetingmind.db
+data/
+logs/
+*.log
+
+# Uploaded / temp files
+tmp/
+temp_uploads/
+*.tmp
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Docker
+*.pid
